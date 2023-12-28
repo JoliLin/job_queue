@@ -1,8 +1,12 @@
-from main import process
-from redis_queue import RedisQueue
+import json
 
-q = RedisQueue('rq')
-while 1:
-    result = q.get()
-    if result:
-        process(result)
+from redis_queue import RedisQueue
+from queue_function import ExecuteJobs
+
+
+def process(data):
+    ### main process here
+    print('# ', json.loads(data) )
+
+if __name__ == '__main__':
+    ExecuteJobs(process)
