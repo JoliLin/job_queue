@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  manager:
+    build:
+      dockerfile: manager/Dockerfile
+      context: . 
+    ports:
+      - "5566:5566"
+  worker:
+    build:
+      dockerfile: worker/Dockerfile
+      context: . 
